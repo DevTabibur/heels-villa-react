@@ -2,8 +2,11 @@ import React from "react";
 import { Button, Card, CardImg } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Product = (props) => {
-  const { name, price, pairImage, sideImage } = props.product;
+const Product = ({product, handleAddToCart}) => {
+  const { name, price, pairImage, sideImage } = product;
+//   console.log(props.handleAddToCart)
+
+
 
   return (
     <div className="ml-4">
@@ -14,7 +17,7 @@ const Product = (props) => {
           <Card.Text>
             Price: ${price}
           </Card.Text>
-          <Button variant="primary">Add to Cart</Button>
+          <Button onClick={ ()=> handleAddToCart(product)} variant="primary">Add to Cart</Button>
         </Card.Body>
       </Card>
     </div>
